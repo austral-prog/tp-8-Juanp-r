@@ -2,6 +2,12 @@ from sets_categories_data import (ALCOHOLS)
 
 
 def clean_ingredients(dish_name, dish_ingredients):
+    ingredients = set()
+    for ingredient in dish_ingredients:
+        ingredients.add(ingredient)
+    clean_list=(dish_name, ingredients)
+    return clean_list
+
     """Remove duplicates from `dish_ingredients`.
 
     :param dish_name: str - containing the dish name.
@@ -12,10 +18,14 @@ def clean_ingredients(dish_name, dish_ingredients):
     followed by the de-duped `set` of ingredients as the second item.
     """
 
-    return ()
+   
 
 
 def check_drinks(drink_name, drink_ingredients):
+    for ingredient in drink_ingredients:
+        if ingredient in ALCOHOLS:
+            return f"{drink_name} Cocktail"
+    return f"{drink_name} Mocktail"    
     """Append "Cocktail" (alcohol)  or "Mocktail" (no alcohol) to `drink_name`, based on `drink_ingredients`.
 
     :param drink_name: str - name of the drink.
@@ -27,5 +37,5 @@ def check_drinks(drink_name, drink_ingredients):
 
     """
 
-    return ""
+     
 
